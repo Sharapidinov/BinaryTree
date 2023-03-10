@@ -1,0 +1,113 @@
+.tree {
+    display: flex;
+    /*justify-content: center;*/
+    align-items: center;
+    flex-direction: column;
+    /*height: 100%;*/
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f7f7f7;
+    padding-top: 20px;
+}
+
+.binary-search-tree {
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+    max-width: 100%;
+}
+
+.node {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: #fff;
+    border-radius: 50%;
+    border: 3px solid #ccc;
+    /* изменяем размеры узла */
+    width: 70px;
+    height: 70px;
+    /* добавляем отступы */
+    margin: 50px;
+    /* увеличиваем z-index, чтобы узлы были поверх линий */
+    position: relative;
+    z-index: 1;
+}
+.node:first-child{
+    margin-right: -300px ;
+}
+
+
+.value {
+    font-size: 24px;
+    font-weight: bold;
+    margin-bottom: 5px;
+    color: #333;
+}
+
+.node:before {
+    content: '';
+    position: absolute;
+    top: -35px;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-bottom: 4px solid #555;
+    transform: translateX(-50%);
+}
+
+.node.left:before {
+    right: 50%;
+    transform: none;
+    left: auto;
+}
+
+.node.right:before {
+    left: 50%;
+    transform: none;
+    right: auto;
+}
+
+.node .left {
+    position: absolute;
+    top: 100%;
+    left: -80px;
+}
+
+.node .right {
+    position: absolute;
+    top: 100%;
+    right: -80px;
+}
+
+
+.node:hover {
+    background-color: #eee;
+}
+.node .left-line,
+.node .right-line {
+    position: absolute;
+    border-left: 3px solid #ccc;
+    height: 30px;
+    top: calc(50% - 15px);
+    z-index: -1;
+}
+
+.node .left-line {
+    left: -30px;
+}
+
+.node .right-line {
+    right: -30px;
+}
+
+/* корректируем линии для левых и правых узлов */
+.node.left .left-line {
+    border-left: none;
+}
+
+.node.right .right-line {
+    border-left: none;
+}
